@@ -1,0 +1,4 @@
+[submodule "fonts/silkscreen"]
+	path = fonts/silkscreen
+	url = https://github.com/googlefonts/silkscreen
+	ignore = dirty

@@ -1,0 +1,488 @@
+[gd_scene load_steps=42 format=2]
+
+[ext_resource path="res://scenes/Walls.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/Client.gd" type="Script" id=2]
+[ext_resource path="res://scripts/Server.gd" type="Script" id=3]
+[ext_resource path="res://scripts/Lobby.gd" type="Script" id=4]
+[ext_resource path="res://scenes/Ball.tscn" type="PackedScene" id=5]
+[ext_resource path="res://fonts/silkscreen.tres" type="DynamicFont" id=6]
+[ext_resource path="res://styles/Box.tres" type="StyleBox" id=7]
+[ext_resource path="res://scripts/ColorSelector.gd" type="Script" id=8]
+[ext_resource path="res://color_buttongroup.tres" type="ButtonGroup" id=9]
+[ext_resource path="res://scenes/ColorButton.tscn" type="PackedScene" id=10]
+[ext_resource path="res://textures/hats/Egg.png" type="Texture" id=11]
+[ext_resource path="res://textures/hats/IsThatTheHaircutFromStreetFighter.png" type="Texture" id=12]
+[ext_resource path="res://textures/hats/Crown.png" type="Texture" id=13]
+[ext_resource path="res://textures/hats/PartyHat.png" type="Texture" id=14]
+[ext_resource path="res://textures/hats/TopHat.png" type="Texture" id=15]
+[ext_resource path="res://textures/hats/CowboyHat.png" type="Texture" id=16]
+[ext_resource path="res://textures/hats/BowlerHat.png" type="Texture" id=17]
+[ext_resource path="res://textures/hats/Bow.png" type="Texture" id=18]
+[ext_resource path="res://textures/buttons/LeftButton.png" type="Texture" id=19]
+[ext_resource path="res://textures/buttons/RightButton.png" type="Texture" id=20]
+[ext_resource path="res://scripts/HatSelector.gd" type="Script" id=21]
+[ext_resource path="res://textures/buttons/CheckboxUnchecked.png" type="Texture" id=22]
+[ext_resource path="res://textures/buttons/CheckboxChecked.png" type="Texture" id=23]
+
+[sub_resource type="Environment" id=1]
+background_mode = 4
+glow_enabled = true
+glow_intensity = 4.0
+glow_bloom = 0.6
+glow_bicubic_upscale = true
+glow_high_quality = true
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0 )
+colors = PoolColorArray( 0.0588235, 0.0588235, 0.101961, 1 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+width = 4096
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.218045, 0.631579 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.505952, 0.505952, 0.505952, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture2D" id=3]
+gradient = SubResource( 2 )
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2( 0.5, 0.5 )
+fill_to = Vector2( 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+content_margin_left = 50.0
+content_margin_right = 50.0
+content_margin_top = 50.0
+content_margin_bottom = 50.0
+bg_color = Color( 0.180392, 0.180392, 0.411765, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0.392157, 0.392157, 1, 1 )
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color( 0, 0, 0, 0.729412 )
+shadow_size = 1
+shadow_offset = Vector2( 25, 25 )
+
+[sub_resource type="DynamicFontData" id=7]
+font_path = "res://fonts/silkscreen/fonts/ttf/Silkscreen-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=10]
+size = 18
+outline_color = Color( 0.392157, 0.392157, 1, 1 )
+font_data = SubResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 3.0
+content_margin_bottom = 3.0
+bg_color = Color( 0.0117647, 0.0117647, 0.137255, 1 )
+
+[sub_resource type="StyleBoxFlat" id=22]
+bg_color = Color( 0.8, 0.8, 0.8, 0.564706 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="DynamicFontData" id=16]
+font_path = "res://fonts/silkscreen/fonts/ttf/Silkscreen-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=17]
+size = 32
+outline_color = Color( 0.392157, 0.392157, 1, 1 )
+font_data = SubResource( 16 )
+
+[sub_resource type="StyleBoxTexture" id=18]
+texture = ExtResource( 19 )
+region_rect = Rect2( 0, 0, 248, 247 )
+
+[sub_resource type="StyleBoxTexture" id=20]
+texture = ExtResource( 19 )
+region_rect = Rect2( 0, 0, 248, 247 )
+modulate_color = Color( 0.392157, 0.392157, 0.392157, 1 )
+
+[sub_resource type="StyleBoxTexture" id=19]
+texture = ExtResource( 20 )
+region_rect = Rect2( 0, 0, 248, 247 )
+
+[sub_resource type="StyleBoxTexture" id=21]
+texture = ExtResource( 20 )
+region_rect = Rect2( 0, 0, 248, 247 )
+modulate_color = Color( 0.392157, 0.392157, 0.392157, 1 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+content_margin_left = 30.0
+content_margin_right = 30.0
+content_margin_top = 15.0
+content_margin_bottom = 20.0
+bg_color = Color( 0.0117647, 0.0117647, 0.137255, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.392157, 0.392157, 1, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id=13]
+content_margin_left = 30.0
+content_margin_right = 30.0
+content_margin_top = 15.0
+content_margin_bottom = 20.0
+bg_color = Color( 0.0235294, 0.0235294, 0.211765, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.67451, 0.67451, 1, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Root" type="Node2D"]
+
+[node name="Client" type="Node" parent="."]
+script = ExtResource( 2 )
+use_localhost = false
+
+[node name="Server" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="Lobby" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource( 4 )
+world_node = NodePath("../World")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="Background" type="Sprite" parent="."]
+rotation = -1.5708
+scale = Vector2( 10, 100000 )
+z_index = -500
+texture = SubResource( 5 )
+
+[node name="Walls" parent="." instance=ExtResource( 1 )]
+
+[node name="Polygon2D2" type="Polygon2D" parent="Walls"]
+position = Vector2( -1062, 341 )
+scale = Vector2( 3, 3 )
+z_index = -10
+polygon = PoolVector2Array( 248.333, -207.333, 239.333, -200, 238, -192.667, 239.333, -186, 246.333, -180.667, 252.333, -178, 263, -175.333, 274, -175.667, 283, -178.667, 287.667, -183.667, 290, -186.667, 291.667, -189.667, 293, -194, 292, -197.667, 290, -201.333, 285.667, -206.667, 275.333, -210.333, 259.667, -210.333, 260.333, -207, 265.333, -207.333, 274.333, -207, 280.333, -205, 285, -202.333, 287.333, -198, 288, -194.333, 285.667, -188, 280.333, -181.667, 272.333, -179.333, 264.333, -179.667, 255.333, -181.333, 249.333, -184, 244, -187, 242.333, -191.667, 243, -196.333, 245.667, -200.667, 251.333, -204.667, 260.333, -207, 259.667, -210.333 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls"]
+position = Vector2( -6.87982, -5.81976 )
+scale = Vector2( 1.03004, 0.986434 )
+z_index = -10
+polygon = PoolVector2Array( -638.925, -432.041, 264.921, -434.069, 202.788, 34.2849, -729.213, 35.2986, -643, -422, -630, -422, -713.679, 21.1061, 187.254, 21.1061, 244.533, -416.835, -643.779, -421.904 )
+
+[node name="World" type="YSort" parent="."]
+
+[node name="Light" type="Polygon2D" parent="World"]
+position = Vector2( -1126, 294 )
+scale = Vector2( 3, 3 )
+color = Color( 0.00784314, 0.00784314, 0.00784314, 1 )
+polygon = PoolVector2Array( -3, -1.33334, -2, -103, -7, -105, -9, -111, 1, -116, 11, -111, 9, -105, 4, -103, 3, -1.33334, 0, 0 )
+
+[node name="Light2D" type="Light2D" parent="World/Light"]
+texture = SubResource( 3 )
+texture_scale = 7.0
+color = Color( 0.0823529, 1, 0.298039, 1 )
+energy = 1.8
+shadow_enabled = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="World/Light"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/Light/StaticBody2D"]
+polygon = PoolVector2Array( 0, 0, 3, -1.33334, 3, -2.666, -0.016, -3.999, -3, -2.666, -3, -1.33334 )
+
+[node name="Bulb" type="Polygon2D" parent="World/Light"]
+position = Vector2( 0.666687, -102.333 )
+polygon = PoolVector2Array( 0.333313, 0.666668, 8.33333, -2.66666, 10.3333, -8.66666, 0.333313, -4, -9.66669, -8.66666, -7.66669, -2.66666 )
+
+[node name="Light2" type="Polygon2D" parent="World"]
+position = Vector2( 1212, -262 )
+scale = Vector2( 3, 3 )
+color = Color( 0.00784314, 0.00784314, 0.00784314, 1 )
+polygon = PoolVector2Array( -3, -1.33334, -2, -103, -7, -105, -9, -111, 1, -116, 11, -111, 9, -105, 4, -103, 3, -1.33334, 0, 0 )
+
+[node name="Light2D" type="Light2D" parent="World/Light2"]
+position = Vector2( 0, -2 )
+texture = SubResource( 3 )
+texture_scale = 7.0
+color = Color( 0.65098, 0.184314, 1, 1 )
+energy = 1.8
+shadow_enabled = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="World/Light2"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/Light2/StaticBody2D"]
+polygon = PoolVector2Array( 0, 0, 3, -1.33334, 3, -2.666, -0.016, -3.999, -3, -2.666, -3, -1.33334 )
+
+[node name="Bulb" type="Polygon2D" parent="World/Light2"]
+position = Vector2( 0.666656, -102.333 )
+polygon = PoolVector2Array( 0.333313, 0.666668, 8.33333, -2.66666, 10.3333, -8.66666, 0.333313, -4, -9.66669, -8.66666, -7.66669, -2.66666 )
+
+[node name="Ball1" parent="World" instance=ExtResource( 5 )]
+modulate = Color( 1, 0, 0.270588, 1 )
+position = Vector2( 414, 167 )
+rotation = -1.5708
+
+[node name="Ball2" parent="World" instance=ExtResource( 5 )]
+modulate = Color( 0.32549, 1, 0, 1 )
+position = Vector2( -518, -74 )
+rotation = -1.5708
+
+[node name="Ball3" parent="World" instance=ExtResource( 5 )]
+modulate = Color( 0, 0.988235, 1, 1 )
+position = Vector2( 457, -313 )
+rotation = -1.5708
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 3, 3 )
+
+[node name="PreConnectMenu" type="CanvasLayer" parent="."]
+pause_mode = 2
+unique_name_in_owner = true
+layer = 128
+visible = false
+
+[node name="Panel" type="Panel" parent="PreConnectMenu"]
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+custom_styles/panel = SubResource( 6 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PreConnectMenu/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = 50.0
+margin_right = -50.0
+margin_bottom = -50.0
+custom_constants/separation = 20
+
+[node name="IpSection" type="HBoxContainer" parent="PreConnectMenu/Panel/VBoxContainer"]
+margin_right = 1052.0
+margin_bottom = 41.0
+alignment = 1
+
+[node name="Label" type="Label" parent="PreConnectMenu/Panel/VBoxContainer/IpSection"]
+margin_left = 214.0
+margin_right = 434.0
+margin_bottom = 41.0
+custom_colors/font_color = Color( 0.392157, 0.392157, 1, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "server ip: "
+
+[node name="ServerIpTextBox" type="LineEdit" parent="PreConnectMenu/Panel/VBoxContainer/IpSection"]
+unique_name_in_owner = true
+margin_left = 438.0
+margin_right = 838.0
+margin_bottom = 41.0
+rect_min_size = Vector2( 400, 0 )
+custom_fonts/font = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
+text = "wss://multiplayerdemo.skylardev.com"
+
+[node name="Localhost" type="HBoxContainer" parent="PreConnectMenu/Panel/VBoxContainer"]
+margin_top = 61.0
+margin_right = 1052.0
+margin_bottom = 119.0
+alignment = 1
+
+[node name="Label2" type="Label" parent="PreConnectMenu/Panel/VBoxContainer/Localhost"]
+margin_left = 257.0
+margin_top = 8.0
+margin_right = 733.0
+margin_bottom = 49.0
+custom_colors/font_color = Color( 0.392157, 0.392157, 1, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "connect to localhost: "
+
+[node name="LocalhostCheckBox" type="CheckBox" parent="PreConnectMenu/Panel/VBoxContainer/Localhost"]
+unique_name_in_owner = true
+margin_left = 737.0
+margin_right = 795.0
+margin_bottom = 58.0
+custom_icons/checked = ExtResource( 23 )
+custom_icons/unchecked = ExtResource( 22 )
+custom_styles/focus = SubResource( 22 )
+expand_icon = true
+
+[node name="ColorSelector" type="HBoxContainer" parent="PreConnectMenu/Panel/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 139.0
+margin_right = 1052.0
+margin_bottom = 180.0
+custom_constants/separation = 10
+alignment = 1
+script = ExtResource( 8 )
+colors = [ Color( 0.92549, 0.0431373, 1, 1 ), Color( 0.529412, 0.192157, 1, 1 ), Color( 0, 0.321569, 1, 1 ), Color( 0, 1, 0.952941, 1 ), Color( 0.027451, 1, 0.360784, 1 ), Color( 1, 0.92549, 0, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 0.364706, 0, 1 ) ]
+color_button_scene = ExtResource( 10 )
+button_group = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="PreConnectMenu/Panel/VBoxContainer/ColorSelector"]
+margin_left = 364.0
+margin_right = 688.0
+margin_bottom = 41.0
+custom_colors/font_color = Color( 0.392157, 0.392157, 1, 1 )
+custom_fonts/font = SubResource( 17 )
+text = "player colour: "
+
+[node name="PlayerPreview" type="HBoxContainer" parent="PreConnectMenu/Panel/VBoxContainer"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_top = 200.0
+margin_right = 1052.0
+margin_bottom = 380.0
+rect_min_size = Vector2( 0, 180 )
+alignment = 1
+
+[node name="Label" type="Label" parent="PreConnectMenu/Panel/VBoxContainer/PlayerPreview"]
+margin_left = 254.0
+margin_top = 69.0
+margin_right = 494.0
+margin_bottom = 110.0
+custom_colors/font_color = Color( 0.392157, 0.392157, 1, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "Hat Select: "
+
+[node name="PlayerPreview" type="Control" parent="PreConnectMenu/Panel/VBoxContainer/PlayerPreview"]
+margin_left = 498.0
+margin_right = 798.0
+margin_bottom = 180.0
+rect_min_size = Vector2( 300, 180 )
+
+[node name="PlayerBodyPreview" type="Polygon2D" parent="PreConnectMenu/Panel/VBoxContainer/PlayerPreview/PlayerPreview"]
+unique_name_in_owner = true
+position = Vector2( 154.8, 47.5 )
+scale = Vector2( 1.75, 1.75 )
+color = Color( 0.921569, 0, 1, 1 )
+offset = Vector2( -25, 0 )
+polygon = PoolVector2Array( 0, 0, 25, -10, 50, 0, 50, 70, 25, 80, 0, 70 )
+
+[node name="PlayerVisor" type="Polygon2D" parent="PreConnectMenu/Panel/VBoxContainer/PlayerPreview/PlayerPreview/PlayerBodyPreview"]
+position = Vector2( 3, 6 )
+polygon = PoolVector2Array( 0, 10, 25, 0, 25, 25, 0, 35 )
+
+[node name="EyeLeft" type="Polygon2D" parent="PreConnectMenu/Panel/VBoxContainer/PlayerPreview/PlayerPreview/PlayerBodyPreview/PlayerVisor"]
+position = Vector2( 3, 10 )
+color = Color( 0, 0, 0, 1 )
+polygon = PoolVector2Array( 0, 3, 7.5, 0, 7.5, 9, 0, 12 )
+
+[node name="EyeRight" type="Polygon2D" parent="PreConnectMenu/Panel/VBoxContainer/PlayerPreview/PlayerPreview/PlayerBodyPreview/PlayerVisor"]
+position = Vector2( 16, 5 )
+color = Color( 0, 0, 0, 1 )
+polygon = PoolVector2Array( 0, 3, 7.5, 0, 7.5, 9, 0, 12 )
+
+[node name="HatSelector" type="Node2D" parent="PreConnectMenu/Panel/VBoxContainer/PlayerPreview/PlayerPreview/PlayerBodyPreview"]
+unique_name_in_owner = true
+position = Vector2( 3, 6 )
+script = ExtResource( 21 )
+
+[node name="Bow" type="Sprite" parent="PreConnectMenu/Panel/VBoxContainer/PlayerPreview/PlayerPreview/PlayerBodyPreview/HatSelector"]
+visible = false
+position = Vector2( -11, -9 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 18 )
+
+[node name="BowlerHat" type="Sprite" parent="PreConnectMenu/Panel/VBoxContainer/PlayerPreview/PlayerPreview/PlayerBodyPreview/HatSelector"]
+visible = false
+position = Vector2( -6, -12 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 17 )
+
+[node name="CowboyHat" type="Sprite" parent="PreConnectMenu/Panel/VBoxContainer/PlayerPreview/PlayerPreview/PlayerBodyPreview/HatSelector"]
+visible = false
+position = Vector2( -7, -23 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 16 )
+
+[node name="Crown" type="Sprite" parent="PreConnectMenu/Panel/VBoxContainer/PlayerPreview/PlayerPreview/PlayerBodyPreview/HatSelector"]
+visible = false
+position = Vector2( -3, -15 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 13 )
+
+[node name="Egg" type="Sprite" parent="PreConnectMenu/Panel/VBoxContainer/PlayerPreview/PlayerPreview/PlayerBodyPreview/HatSelector"]
+visible = false
+position = Vector2( -5, -5 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 11 )
+
+[node name="IsThatTheHaircutFromStreetFighter" type="Sprite" parent="PreConnectMenu/Panel/VBoxContainer/PlayerPreview/PlayerPreview/PlayerBodyPreview/HatSelector"]
+visible = false
+position = Vector2( -9, -10 )
+scale = Vector2( 0.182981, 0.182981 )
+texture = ExtResource( 12 )
+
+[node name="PartyHat" type="Sprite" parent="PreConnectMenu/Panel/VBoxContainer/PlayerPreview/PlayerPreview/PlayerBodyPreview/HatSelector"]
+visible = false
+position = Vector2( -7, -23 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 14 )
+
+[node name="TopHat" type="Sprite" parent="PreConnectMenu/Panel/VBoxContainer/PlayerPreview/PlayerPreview/PlayerBodyPreview/HatSelector"]
+visible = false
+position = Vector2( -5, -15 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 15 )
+
+[node name="PreviousHatButton" type="Button" parent="PreConnectMenu/Panel/VBoxContainer/PlayerPreview/PlayerPreview"]
+unique_name_in_owner = true
+margin_left = 32.8
+margin_top = 65.5
+margin_right = 82.8
+margin_bottom = 115.5
+custom_styles/hover = SubResource( 18 )
+custom_styles/pressed = SubResource( 18 )
+custom_styles/focus = SubResource( 20 )
+custom_styles/normal = SubResource( 18 )
+
+[node name="NextHatButton" type="Button" parent="PreConnectMenu/Panel/VBoxContainer/PlayerPreview/PlayerPreview"]
+unique_name_in_owner = true
+margin_left = 231.0
+margin_top = 65.5
+margin_right = 281.0
+margin_bottom = 115.5
+custom_styles/hover = SubResource( 19 )
+custom_styles/pressed = SubResource( 19 )
+custom_styles/focus = SubResource( 21 )
+custom_styles/normal = SubResource( 19 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PreConnectMenu/Panel/VBoxContainer"]
+margin_top = 400.0
+margin_right = 1052.0
+margin_bottom = 476.0
+alignment = 1
+
+[node name="ConnectButton" type="Button" parent="PreConnectMenu/Panel/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 412.0
+margin_right = 640.0
+margin_bottom = 76.0
+custom_colors/font_color_disabled = Color( 0.384314, 0.384314, 0.384314, 1 )
+custom_colors/font_color_focus = Color( 0.392157, 0.392157, 1, 1 )
+custom_colors/font_color = Color( 0.392157, 0.392157, 1, 1 )
+custom_colors/font_color_hover = Color( 0.392157, 0.392157, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.67451, 0.67451, 1, 1 )
+custom_fonts/font = ExtResource( 6 )
+custom_styles/hover = SubResource( 12 )
+custom_styles/pressed = SubResource( 13 )
+custom_styles/disabled = ExtResource( 7 )
+custom_styles/normal = ExtResource( 7 )
+text = "Connect"

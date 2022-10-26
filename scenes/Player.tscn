@@ -1,0 +1,363 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://scripts/PlayerAnimation.gd" type="Script" id=2]
+[ext_resource path="res://scripts/Kick.gd" type="Script" id=3]
+[ext_resource path="res://textures/hats/BowlerHat.png" type="Texture" id=4]
+[ext_resource path="res://textures/hats/Bow.png" type="Texture" id=5]
+[ext_resource path="res://textures/hats/CowboyHat.png" type="Texture" id=6]
+[ext_resource path="res://textures/hats/Crown.png" type="Texture" id=7]
+[ext_resource path="res://textures/hats/Egg.png" type="Texture" id=8]
+[ext_resource path="res://textures/hats/IsThatTheHaircutFromStreetFighter.png" type="Texture" id=9]
+[ext_resource path="res://textures/hats/PartyHat.png" type="Texture" id=10]
+[ext_resource path="res://textures/hats/TopHat.png" type="Texture" id=11]
+
+[sub_resource type="OccluderPolygon2D" id=1]
+polygon = PoolVector2Array( 0, 0, 25, -10, 50, 0, 50, 7.17206, 53, 6, 53, 31, 50, 32.3989, 50, 70, 25, 80, 0, 70 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -80 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("PlayerVisor:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 3, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("PlayerVisor:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 6, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("PlayerVisor:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath(".:position:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath(".:position:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( -80, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath(".:scale:x")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath(".:scale:y")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "idle"
+length = 4.0
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("PlayerVisor:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 3, -0.25, 0, 0.3, 2.56502, 3, -0.25, 0, 0.25, 0, 3, -0.6, -4.75632, 0.4, 3.11022 ),
+"times": PoolRealArray( 0, 1.1, 4 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("PlayerVisor:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 6, -0.25, 0, 0.25, 0, 4, -0.25, 0, 0.25, 0, 6, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1.6, 4 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("PlayerVisor:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -1.36689, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 2.1, 4 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath(".:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1.6, 4 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath(".:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( -80, -0.25, 0, 0.25, 0, -87.557, -0.25, 0, 0.25, 0, -80, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 2.1, 4 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath(".:scale:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1.1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 2.1, 4 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath(".:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0, -0.5, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1.1, 2.9, 4 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "walking"
+length = 0.4
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -80 ), Vector2( 7, -94 ), Vector2( 0, -80 ), Vector2( -12, -91.211 ), Vector2( 0, -80 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 5.2, 0.0, -8.91105, 0.0 ]
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("PlayerVisor:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray(  ),
+"times": PoolRealArray(  )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("PlayerVisor:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray(  ),
+"times": PoolRealArray(  )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("PlayerVisor:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( -0.198589, -0.02, -0.778866, 0.04, 0.0778866, -1.52266, -0.03, -0.0778866, 0.04, -0.4573, 0.0350704, -0.02, -0.23366, 0.04, -0.389433, 1.43703, 0, -0.116665, 0.03, -0.389433, 0.346617, -0.07, -0.120703, 0.05, 0.112957 ),
+"times": PoolRealArray( 0, 0.09, 0.2, 0.3, 0.4 )
+}
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "player character spawned on game start"
+}
+
+[node name="PlayerBody" type="Polygon2D" parent="."]
+position = Vector2( 0, -80 )
+color = Color( 0.921569, 0, 1, 1 )
+offset = Vector2( -25, 0 )
+polygon = PoolVector2Array( 0, 0, 25, -10, 50, 0, 50, 70, 25, 80, 0, 70 )
+
+[node name="PlayerVisor" type="Polygon2D" parent="PlayerBody"]
+position = Vector2( 3, 6 )
+polygon = PoolVector2Array( 0, 10, 25, 0, 25, 25, 0, 35 )
+
+[node name="EyeLeft" type="Polygon2D" parent="PlayerBody/PlayerVisor"]
+position = Vector2( 3, 10 )
+color = Color( 0, 0, 0, 1 )
+polygon = PoolVector2Array( 0, 3, 7.5, 0, 7.5, 9, 0, 12 )
+
+[node name="EyeRight" type="Polygon2D" parent="PlayerBody/PlayerVisor"]
+position = Vector2( 16, 5 )
+color = Color( 0, 0, 0, 1 )
+polygon = PoolVector2Array( 0, 3, 7.5, 0, 7.5, 9, 0, 12 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="PlayerBody"]
+position = Vector2( -25, 0 )
+occluder = SubResource( 1 )
+
+[node name="Kick" type="Area2D" parent="PlayerBody"]
+position = Vector2( 0, 70 )
+collision_mask = 2
+script = ExtResource( 3 )
+kick_force = 15.0
+
+[node name="KickCollisionPolygon" type="CollisionPolygon2D" parent="PlayerBody/Kick"]
+polygon = PoolVector2Array( 0, -20, 50, 0, 0, 20, -50, 0 )
+
+[node name="Hat" type="Node2D" parent="PlayerBody"]
+unique_name_in_owner = true
+position = Vector2( 3, 6 )
+
+[node name="Bow" type="Sprite" parent="PlayerBody/Hat"]
+visible = false
+light_mask = 0
+position = Vector2( -11, -9 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 5 )
+
+[node name="BowlerHat" type="Sprite" parent="PlayerBody/Hat"]
+visible = false
+light_mask = 0
+position = Vector2( -6, -12 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 4 )
+
+[node name="CowboyHat" type="Sprite" parent="PlayerBody/Hat"]
+visible = false
+light_mask = 0
+position = Vector2( -7, -23 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 6 )
+
+[node name="Crown" type="Sprite" parent="PlayerBody/Hat"]
+visible = false
+light_mask = 0
+position = Vector2( -3, -15 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="Egg" type="Sprite" parent="PlayerBody/Hat"]
+visible = false
+light_mask = 0
+position = Vector2( -5, -5 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 8 )
+
+[node name="IsThatTheHaircutFromStreetFighter" type="Sprite" parent="PlayerBody/Hat"]
+visible = false
+light_mask = 0
+position = Vector2( -9, -10 )
+scale = Vector2( 0.182981, 0.182981 )
+texture = ExtResource( 9 )
+
+[node name="PartyHat" type="Sprite" parent="PlayerBody/Hat"]
+visible = false
+light_mask = 0
+position = Vector2( -7, -23 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 10 )
+
+[node name="TopHat" type="Sprite" parent="PlayerBody/Hat"]
+visible = false
+light_mask = 0
+position = Vector2( -5, -15 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 11 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( -25, -10 )
+polygon = PoolVector2Array( 0, 0, 25, -10, 50, 0, 25, 10 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2( 1.5, 1.5 )
+smoothing_enabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../PlayerBody")
+anims/RESET = SubResource( 3 )
+anims/idle = SubResource( 4 )
+anims/walking = SubResource( 2 )
+script = ExtResource( 2 )
+player_node = NodePath("..")

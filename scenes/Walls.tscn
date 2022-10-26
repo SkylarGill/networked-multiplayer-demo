@@ -1,0 +1,115 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0.773438, 0.84375, 0.957031 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.293948, 1, 0.760053, 0.631373, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="OccluderPolygon2D" id=4]
+polygon = PoolVector2Array( 0, 0, 25, -10, 50, 0, 50, 200, 25, 210, 0, 200 )
+
+[node name="Walls" type="Node2D"]
+
+[node name="OuterWall" type="StaticBody2D" parent="."]
+position = Vector2( -810, -529 )
+z_index = -5
+
+[node name="Polygon2D" type="Polygon2D" parent="OuterWall"]
+light_mask = 2
+position = Vector2( 0, -90 )
+color = Color( 1, 1, 1, 0.388235 )
+texture = SubResource( 3 )
+texture_offset = Vector2( 1010.44, 0 )
+texture_scale = Vector2( 1.744, 1 )
+texture_rotation_degrees = 90.0
+polygon = PoolVector2Array( 0, -180, 2000, -180, 2000, 100, 0, 100 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="OuterWall"]
+polygon = PoolVector2Array( 0, -180, 2000, -180, 2000, 10, 0, 10 )
+
+[node name="OuterWall2" type="StaticBody2D" parent="."]
+position = Vector2( -1110, 671 )
+z_index = 100
+
+[node name="Polygon2D" type="Polygon2D" parent="OuterWall2"]
+light_mask = 2
+position = Vector2( 0, -90 )
+color = Color( 1, 1, 1, 0.388235 )
+texture = SubResource( 3 )
+texture_offset = Vector2( 450, 0 )
+texture_scale = Vector2( 4.5, 1 )
+texture_rotation_degrees = 90.0
+polygon = PoolVector2Array( 0, 0, 2000, 0, 2000, 100, 0, 100 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="OuterWall2"]
+polygon = PoolVector2Array( 0, -20, 2000, -20, 2000, 100, 0, 100 )
+
+[node name="OuterWall3" type="StaticBody2D" parent="."]
+position = Vector2( -810, -619 )
+
+[node name="Polygon2D" type="Polygon2D" parent="OuterWall3"]
+light_mask = 2
+color = Color( 1, 1, 1, 0.388235 )
+texture = SubResource( 3 )
+texture_offset = Vector2( 290.273, 0 )
+texture_scale = Vector2( 6.141, 0 )
+texture_rotation_degrees = -194.0
+polygon = PoolVector2Array( 0, -90, 0, 100, -300, 1300, -300, 1110 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="OuterWall3"]
+polygon = PoolVector2Array( 0, -90, 0, 100, -300, 1300, -300, 1110 )
+
+[node name="OuterWall4" type="StaticBody2D" parent="."]
+position = Vector2( 1190, -619 )
+z_index = 100
+
+[node name="Polygon2D" type="Polygon2D" parent="OuterWall4"]
+light_mask = 2
+color = Color( 1, 1, 1, 0.388235 )
+texture = SubResource( 3 )
+texture_offset = Vector2( 290.273, 0 )
+texture_scale = Vector2( 6.141, 0 )
+texture_rotation_degrees = -194.0
+polygon = PoolVector2Array( 0, -90, 0, 100, -300, 1300, -300, 1110 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="OuterWall4"]
+position = Vector2( 0, 160 )
+polygon = PoolVector2Array( 0, -90, 0, 100, -300, 1300, -300, 1110 )
+
+[node name="Pillar" type="Polygon2D" parent="."]
+position = Vector2( -1135, 480 )
+z_index = 200
+color = Color( 0.00784314, 0.00784314, 0.00784314, 1 )
+polygon = PoolVector2Array( 0, 0, 25, -10, 50, 0, 50, 200, 25, 210, 0, 200 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Pillar"]
+occluder = SubResource( 4 )
+
+[node name="Pillar2" type="Polygon2D" parent="."]
+position = Vector2( 865, 480 )
+z_index = 200
+color = Color( 0.00784314, 0.00784314, 0.00784314, 1 )
+polygon = PoolVector2Array( 0, 0, 25, -10, 50, 0, 50, 200, 25, 210, 0, 200 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Pillar2"]
+occluder = SubResource( 4 )
+
+[node name="Pillar3" type="Polygon2D" parent="."]
+position = Vector2( -835, -719 )
+z_index = -1
+color = Color( 0.00784314, 0.00784314, 0.00784314, 1 )
+polygon = PoolVector2Array( 0, 0, 25, -10, 50, 0, 50, 200, 25, 210, 0, 200 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Pillar3"]
+occluder = SubResource( 4 )
+
+[node name="Pillar4" type="Polygon2D" parent="."]
+position = Vector2( 1165, -719 )
+z_index = -1
+color = Color( 0.00784314, 0.00784314, 0.00784314, 1 )
+polygon = PoolVector2Array( 0, 0, 25, -10, 50, 0, 50, 200, 25, 210, 0, 200 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Pillar4"]
+occluder = SubResource( 4 )
