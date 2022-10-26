@@ -13,8 +13,9 @@ func _physics_process(delta):
 	var inputY = Input.get_axis("movement_up", "movement_down")
 	
 	if inputX != 0 or inputY != 0:
-		play("walking")
-		rpc_unreliable("play_animation", "walking") # we call these unreliably as we don't mind if the animations are out of sync
+		play("walking") 
+		# we call these unreliably as we don't mind if the animations are out of sync
+		rpc_unreliable("play_animation", "walking")
 		return
 	play("idle")
 	rpc_unreliable("play_animation", "idle")
