@@ -39,15 +39,18 @@ func _physics_process(_delta):
 	# set the players scale to change facing direction to match movement
 	if(xMove != 0):
 		player_body.scale = Vector2(sign(xMove), player_body.scale.y)
-		
-	rpc_unreliable_id(1, "set_new_position", position, player_body.scale) # send new position data to the server - we use the unreliable variant of the method as we don't care if the position is slightly out of date
+
+	# send new position data to the server
+	# we use the unreliable variant of the method as we don't care if the position is slightly out of date	
+	rpc_unreliable_id(1, "set_new_position", position, player_body.scale) 
 
 # runs on the server to send the new transform data to all clients
 # you could validate player movement here so that players can't cheat by changing their speed locally
 master func set_new_position(newPosition: Vector2, newScale: Vector2):
 	position = newPosition
 	player_body.scale = newScale
-	rpc_unreliable("move_player_on_clients", newPosition, newScale) # we use the unreliable variant here again as we don't care if every packet is recieved
+	# we use the unreliable variant here again as we don't care if every packet is recieved
+	rpc_unreliable("move_player_on_clients", newPosition, newScale)
 
 # runs on the client. this is called by the server to sync client transforms with the server
 puppet func move_player_on_clients(newPosition: Vector2, newScale: Vector2):
